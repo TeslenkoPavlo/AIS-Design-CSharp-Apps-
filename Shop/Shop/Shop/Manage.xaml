@@ -1,0 +1,415 @@
+﻿<Window x:Class="Shop.Manage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Shop"
+        mc:Ignorable="d"
+        Title="Manage" Height="800" Width="1000" >
+    <Grid>
+
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="#F3E5F5" Offset="0"/>
+                <GradientStop Color="#CE93D8" Offset="0.5"/>
+                <GradientStop Color="#9C27B0" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <TabControl SelectionChanged="TabControl_SelectionChanged">
+            <TabItem Header="Categories">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="97*"/>
+                        <ColumnDefinition Width="1097*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="5*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <ListView x:Name="CategoryItemList" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.ColumnSpan="2">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn 
+                                    Header="Id" 
+                                    Width="150" 
+                                    DisplayMemberBinding="{Binding Id}" />
+                                <GridViewColumn 
+                                    Header="Name" 
+                                    Width="150" 
+                                    DisplayMemberBinding="{Binding Name}" />
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+
+                    <Button Content="Create" 
+        HorizontalAlignment="Left" 
+        Margin="335,76,0,0" 
+        Grid.Row="1" 
+        VerticalAlignment="Top" 
+        Height="50" 
+        Width="220" 
+        FontSize="18" 
+        FontWeight="SemiBold" 
+        Foreground="White" 
+        Background="#6A5ACD" 
+        BorderBrush="Transparent" 
+        Padding="15,5" 
+        Grid.RowSpan="2" Click="Button_Click" Grid.Column="1">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="8" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="0">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#5A4DBD"/>
+                                    </Trigger>
+                                    <Trigger Property="IsPressed" Value="True">
+                                        <Setter Property="Background" Value="#4A3DAD"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+
+                    <Button Content="Update" 
+        HorizontalAlignment="Left" 
+        Margin="89,76,0,0" 
+        Grid.Row="1" 
+        VerticalAlignment="Top" 
+        Height="50" 
+        Width="220" 
+        FontSize="18" 
+        FontWeight="SemiBold" 
+        Foreground="White" 
+        Background="#6A5ACD" 
+        BorderBrush="Transparent" 
+        Padding="15,5" 
+        Grid.RowSpan="2" Click="Button_Click_1" Grid.Column="1">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="8" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="0">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#5A4DBD"/>
+                                    </Trigger>
+                                    <Trigger Property="IsPressed" Value="True">
+                                        <Setter Property="Background" Value="#4A3DAD"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+
+                    <Button Content="Delete" 
+        HorizontalAlignment="Left" 
+        Margin="579,76,0,0" 
+        Grid.Row="1" 
+        VerticalAlignment="Top" 
+        Height="50" 
+        Width="220" 
+        FontSize="18" 
+        FontWeight="SemiBold" 
+        Foreground="White" 
+        Background="#6A5ACD" 
+        BorderBrush="Transparent" 
+        Padding="15,5" 
+        Grid.RowSpan="2" Click="Button_Click_2" Grid.Column="1">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="8" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="0">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#5A4DBD"/>
+                                    </Trigger>
+                                    <Trigger Property="IsPressed" Value="True">
+                                        <Setter Property="Background" Value="#4A3DAD"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+
+                    <Label Content="Name" 
+                            HorizontalAlignment="Left" 
+                            VerticalAlignment="Center" 
+                            FontSize="14" 
+                            FontWeight="SemiBold" 
+                            Foreground="#333333" Margin="304,0,0,0" Grid.Row="2" Grid.Column="1"/>
+                    <TextBox x:Name="NameTextBox" 
+             Text="{Binding SelectedItem.Name, ElementName=CategoryItemList, Mode=OneWay}" 
+             HorizontalAlignment="Center" 
+             Width="150" 
+             Height="35" 
+             VerticalAlignment="Center"
+             BorderBrush="#CCCCCC" 
+             BorderThickness="1" 
+             Background="#F9F9F9" 
+             Padding="5,0" 
+             FontSize="13" Grid.Row="2" Grid.Column="1"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Product">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="5*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <ListView x:Name="ProductsItemList" d:ItemsSource="{d:SampleData ItemCount=5}">
+                        <ListView.View>
+                            <GridView>
+
+                                <GridViewColumn 
+                                    Header="Id" 
+                                    Width="150" 
+                                    DisplayMemberBinding="{Binding Id}" />
+
+                                <GridViewColumn 
+                                    Header="Name" 
+                                    Width="150" 
+                                    DisplayMemberBinding="{Binding Name}" />
+
+                                <GridViewColumn 
+                                    Header="Quantity" 
+                                    Width="150" 
+                                    DisplayMemberBinding="{Binding Quantity}" />
+
+                                <GridViewColumn 
+                                    Header="Price" 
+                                    Width="150" 
+                                    DisplayMemberBinding="{Binding Price}" />
+
+                                <GridViewColumn 
+                                    Header="Category" 
+                                    Width="150" 
+                                    DisplayMemberBinding="{Binding Category.Name}" />
+
+                            </GridView>
+
+
+                        </ListView.View>
+                    </ListView>
+
+                    <Button Content="Create" 
+        HorizontalAlignment="Center" 
+        Margin="30,70,0,0" 
+        Grid.Row="1" 
+        VerticalAlignment="Top" 
+        Height="50" 
+        Width="220" 
+        FontSize="18" 
+        FontWeight="SemiBold" 
+        Foreground="White" 
+        Background="#6A5ACD" 
+        BorderBrush="Transparent" 
+        Padding="15,5" 
+        Grid.RowSpan="2" Click="Button_Click_3">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="8" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="0">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#5A4DBD"/>
+                                    </Trigger>
+                                    <Trigger Property="IsPressed" Value="True">
+                                        <Setter Property="Background" Value="#4A3DAD"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+
+                    <Button Content="Update" 
+        HorizontalAlignment="Left" 
+        Margin="30,70,0,0" 
+        Grid.Row="1" 
+        VerticalAlignment="Top" 
+        Height="50" 
+        Width="220" 
+        FontSize="18" 
+        FontWeight="SemiBold" 
+        Foreground="White" 
+        Background="#6A5ACD" 
+        BorderBrush="Transparent" 
+        Padding="15,5" 
+        Grid.RowSpan="2" Click="Button_Click_4">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="8" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="0">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#5A4DBD"/>
+                                    </Trigger>
+                                    <Trigger Property="IsPressed" Value="True">
+                                        <Setter Property="Background" Value="#4A3DAD"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+
+                    <Button Content="Delete" 
+        HorizontalAlignment="Right" 
+        Margin="0,70,35,0" 
+        Grid.Row="1" 
+        VerticalAlignment="Top" 
+        Height="50" 
+        Width="220" 
+        FontSize="18" 
+        FontWeight="SemiBold" 
+        Foreground="White" 
+        Background="#6A5ACD" 
+        BorderBrush="Transparent" 
+        Padding="15,5" 
+        Grid.RowSpan="2" Click="Button_Click_5">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="8" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="0">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#5A4DBD"/>
+                                    </Trigger>
+                                    <Trigger Property="IsPressed" Value="True">
+                                        <Setter Property="Background" Value="#4A3DAD"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+
+                    <Label Content="Product" 
+                            HorizontalAlignment="Left" 
+                            VerticalAlignment="Top" 
+                            FontSize="14" 
+                            FontWeight="SemiBold" 
+                            Foreground="#333333" Margin="30,34,0,0" Grid.Row="2" RenderTransformOrigin="0.039,0.527"/>
+                    <TextBox x:Name="ProductNameTextBox" 
+                            Text="{Binding SelectedItem.Product, ElementName=ProductsItemList, Mode=OneWay}" 
+                            HorizontalAlignment="Left" 
+                            Width="150" 
+                            Height="35" 
+                            VerticalAlignment="Top" 
+                            Margin="100,31,0,0"
+                            BorderBrush="#CCCCCC" 
+                            BorderThickness="1" 
+                            Background="#F9F9F9" 
+                            Padding="5,0" 
+                            FontSize="13" Grid.Row="2"/>
+
+                    <Label Content="Quantity" 
+                            HorizontalAlignment="Left" 
+                            VerticalAlignment="Top" 
+                            FontSize="14" 
+                            FontWeight="SemiBold" 
+                            Foreground="#333333" Margin="394,34,0,0" Grid.Row="2"/>
+                    <TextBox x:Name="QuantityNameTextBox" 
+                            Text="{Binding SelectedItem.Quantity, ElementName=QuantityItemList, Mode=OneWay}" 
+                            HorizontalAlignment="Left" 
+                            Width="150" 
+                            Height="35" 
+                            VerticalAlignment="Top" 
+                            Margin="464,31,0,0"
+                            BorderBrush="#CCCCCC" 
+                            BorderThickness="1" 
+                            Background="#F9F9F9" 
+                            Padding="5,0" 
+                            FontSize="13" Grid.Row="2"/>
+
+                    <Label Content="Price" 
+                            HorizontalAlignment="Left" 
+                            VerticalAlignment="Top" 
+                            FontSize="14" 
+                            FontWeight="SemiBold" 
+                            Foreground="#333333" Margin="756,37,0,0" Grid.Row="2"/>
+                    <TextBox x:Name="PriceNameTextBox" 
+                            Text="{Binding SelectedItem.Price, ElementName=PriceItemList, Mode=OneWay}" 
+                           
+                            Width="145" 
+                            Height="35" 
+                            VerticalAlignment="Top" 
+                            Margin="814,31,35,0"
+                            BorderBrush="#CCCCCC" 
+                            BorderThickness="1" 
+                            Background="#F9F9F9" 
+                            Padding="5,0" 
+                            FontSize="13" Grid.Row="2"/>
+
+                    <Label Content="Category" HorizontalAlignment="Left" Margin="307,23,0,0" VerticalAlignment="Top" FontSize="14" Grid.Row="1"/>
+                    <ComboBox x:Name="CategoryComboBox" DisplayMemberPath="Name" 
+           SelectedValue="{Binding SelectedItem.Category, ElementName=ProductsItemList, Mode=OneWay}" 
+          VerticalAlignment="Top" Height="41" Margin="394,17,364,0" Grid.Row="1"/>
+
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>
